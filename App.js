@@ -12,8 +12,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createAppContainer} from 'react-navigation';
 
-import HomeScreen from './src/screens/Home';
-import OtpScreen from './src/screens/otp';
+import HomeScreen from './app/components/home';
+import OtpScreen from './app/components/otp';
 
 const OnBoarding = createStackNavigator(
   {Home: HomeScreen, Otp: OtpScreen},

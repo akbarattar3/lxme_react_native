@@ -1,9 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import styles from './style';
 import LottieView from 'lottie-react-native';
-import Images from '../../constants/Images';
 
 const SubmitButton = props => {
   console.log('props', props);
@@ -16,7 +15,7 @@ const SubmitButton = props => {
         props.buttonPress();
       }}>
       {props.isLoading ? (
-        <LottieView source={Images.LOADING} autoPlay />
+        <LottieView source={require('../../../assets/loading.json')} autoPlay />
       ) : (
         <Text style={styles.signinButtonText}>{props.text}</Text>
       )}

@@ -5,10 +5,10 @@ import {
   HeaderButton,
   HeaderButtons,
 } from 'react-navigation-header-buttons';
-import Logo from '../../assets/Logo';
+import Logo from '../../assets/images/Logo';
 import CheckBox from '@react-native-community/checkbox';
 import styles from './style';
-import SubmitButton from '../../components/submitButton';
+import SubmitButton from '../../globals/components/submitButton';
 
 const HomeScreen = props => {
   const [agree, setAgree] = useState(false);

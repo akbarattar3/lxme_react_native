@@ -5,9 +5,9 @@ import {
   HeaderButton,
   HeaderButtons,
 } from 'react-navigation-header-buttons';
-import Logo from '../../assets/Logo';
+import Logo from '../../assets/images/Logo';
 import styles from './style';
-import SubmitButton from '../../components/submitButton';
+import SubmitButton from '../../globals/components/submitButton';
 
 const OtpScreen = props => {
   const firstInput = useRef();

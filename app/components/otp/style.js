@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import Colors from '../../constants/Colors';
-import {Display} from '../../utils';
+import Colors from '../../themes/Colors';
+import {setHeight} from '../../globals/utils/Display';
 
 const styles = StyleSheet.create({
   input: {
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   signinButton: {
     backgroundColor: Colors.DEFAULT_APP,
     borderRadius: 8,
-    height: Display.setHeight(6),
+    height: setHeight(6),
     width: '90%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.DEFAULT_APP,
     borderRadius: 8,
     marginHorizontal: 20,
-    height: Display.setHeight(6),
+    height: setHeight(6),
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
