@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import {setHeight} from '../../globals/utils/Display';
-import Colors from '../../themes/Colors';
+import {setHeight} from '../../globals/utils/display';
+import Colors from '../../themes/colors';
 
 const styles = StyleSheet.create({
   input: {

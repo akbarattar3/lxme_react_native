@@ -1,4 +1,4 @@
-const checkValueIsNumberOrNot = (inputValue) => {
+const checkValueIsNumberOrNot = inputValue => {
   //Handler called on button click
   if (isNaN(inputValue)) {
     //if input is not a number then here

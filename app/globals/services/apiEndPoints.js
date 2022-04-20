@@ -1,4 +1,4 @@
-import {api_environments} from './api_environments';
+import {api_environments} from './apiEnvironments';
 let envi = 'API_DOMAIN_QA';
 export function getBaseURL() {
   // envi = getEnv() || envi;  uncommen tfor multi Switch environment. i.e (prod, uat, qa) Environment

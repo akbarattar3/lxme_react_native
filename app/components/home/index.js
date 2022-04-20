@@ -16,7 +16,7 @@ import CheckBox from '@react-native-community/checkbox';
 import styles from './style';
 import SubmitButton from '../../globals/components/submitButton';
 import SpannableBuilder from 'react-native-spannable-string';
-import {isValid} from '../../globals/utils/Validator';
+import {isValid} from '../../globals/utils/validator';
 import {callLogin} from './action';
 import {connect} from 'react-redux';
 import {store} from '../../store/configureStore';
@@ -73,20 +73,21 @@ const HomeScreen = props => {
         text={'SEND OTP'}
         buttonPress={() => {
           // console.log('clicked ');
-          // props.navigation.navigate('Otp', {number: input});
-          props.callLogin({
-            onSuccess: successMessage => {
-              console.log('on success response ', successMessage[0].lan_name);
-              console.log(
-                'on success response from reducer ',
-                props.LoginReducer.languageData,
-              );
-              console.log(
-                'from direct store ',
-                store.getState().LoginReducer.languageData,
-              );
-            },
-          });
+          props.navigation.navigate('Otp', {number: input});
+          //   props.callLogin({
+          //     onSuccess: successMessage => {
+          //       console.log('on success response ', successMessage[0].lan_name);
+          //       console.log(
+          //         'on success response from reducer ',
+          //         props.LoginReducer.languageData,
+          //       );
+          //       console.log(
+          //         'from direct store ',
+          //         store.getState().LoginReducer.languageData,
+          //       );
+          //     },
+          //   });
+          // }}
         }}
       />
     </>

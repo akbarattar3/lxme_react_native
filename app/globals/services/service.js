@@ -1,6 +1,6 @@
 import axios, {create} from 'axios';
-import {HTTP_METHODS, ERROR_MESG, ERROR_CODE} from './api_constants';
-import {api_environments} from './api_environments';
+import {HTTP_METHODS, ERROR_MESG, ERROR_CODE} from './apiConstants';
+import {api_environments} from './apiEnvironments';
 import {DeviceEventEmitter} from 'react-native';
 
 /**

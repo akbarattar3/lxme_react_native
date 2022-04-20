@@ -1,6 +1,6 @@
 import {request} from '../../globals/services/service';
-import {GET_CURRENCY} from '../../globals/services/api_end_points';
-import {HTTP_METHODS} from '../../globals/services/api_constants';
+import {GET_CURRENCY} from '../../globals/services/apiEndPoints';
+import {HTTP_METHODS} from '../../globals/services/apiConstants';
 import {LoginActionType} from './actionType';
 import {takeLatest, put} from 'redux-saga/effects';
 
