@@ -1,5 +1,11 @@
 import React, {useState, useRef} from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  KeyboardAvoidingView,
+  ScrollView,
+} from 'react-native';
 import {
   Item,
   HeaderButton,
@@ -18,11 +24,13 @@ const OtpScreen = props => {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <>
-      <View style={styles.containerFullWidth}>
-        <View style={styles.ImageView}>
-          <Logo />
-        </View>
-        <View style={styles.container}>
+      <KeyboardAvoidingView
+        style={styles.containerFullWidth}
+        behavior="padding">
+        <ScrollView>
+          <View style={styles.ImageView}>
+            <Logo />
+          </View>
           <Text style={styles.TextView}>Enter OTP</Text>
           <Text style={styles.TextViewLight}>OTP has been sent to you</Text>
           <View style={styles.numberHorizontal}>
@@ -83,19 +91,19 @@ const OtpScreen = props => {
               />
             </View>
           </View>
-        </View>
-        <View style={styles.resend}>
-          <Text style={styles.resendOtpText}>Resend OTP</Text>
-        </View>
-        <SubmitButton
-          isLoading={isLoading}
-          text={'LOGIN'}
-          buttonPress={() => {
-            console.log('otp clicked ');
-            props.navigation.navigate('Otp');
-          }}
-        />
-      </View>
+          <View style={styles.resend}>
+            <Text style={styles.resendOtpText}>Resend OTP</Text>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+      <SubmitButton
+        isLoading={isLoading}
+        text={'LOGIN'}
+        buttonPress={() => {
+          console.log('otp clicked ');
+          props.navigation.navigate('Otp');
+        }}
+      />
     </>
   );
 };

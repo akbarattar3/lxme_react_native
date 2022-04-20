@@ -68,6 +68,13 @@ const styles = StyleSheet.create({
     marginStart: 20,
     width: '90%',
   },
+  spanText: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignContent: 'center',
+    marginTop: 8,
+    marginStart: 12,
+  },
   label: {
     alignSelf: 'center',
     textAlign: 'center',
@@ -91,6 +98,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 30,
     marginHorizontal: 20,
+  },
+  termsConditions: {
+    color: Colors.DEFAULT_APP,
+    fontSize: 12,
+    fontFamily: 'poppins-semiBold',
   },
 });
 export default styles;
