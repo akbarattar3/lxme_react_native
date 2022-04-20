@@ -4,16 +4,24 @@ import Colors from '../../themes/Colors';
 
 const styles = StyleSheet.create({
   input: {
-    height: setHeight(6),
+    height: setHeight(8),
     marginTop: 20,
     borderWidth: 1,
     borderRadius: 10,
     paddingBottom: 5,
     marginStart: 20,
     marginEnd: 20,
-    paddingStart: 10,
+    paddingStart: 15,
+    borderColor: '#F2F1F6',
     fontFamily: 'poppins-semiBold',
     backgroundColor: '#73AD21',
+    fontSize: 15,
+    color: '#14131B',
+  },
+  placeholder: {
+    fontFamily: 'poppins-regular',
+    color: '#696C7F',
+    fontSize: 15,
   },
   submit: {
     marginRight: 40,

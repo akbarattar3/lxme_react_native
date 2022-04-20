@@ -20,6 +20,7 @@ import SpannableBuilder from 'react-native-spannable-string';
 const HomeScreen = props => {
   const [agree, setAgree] = useState(false);
   const [isLoading] = useState(false);
+  const [input, setInput] = useState('');
   return (
     <>
       <KeyboardAvoidingView
@@ -39,6 +40,9 @@ const HomeScreen = props => {
               placeholder="Mobile No"
               keyboardType="numeric"
               backgroundColor="#F4F7FE"
+              value={input}
+              onChangeText={value => setInput(value)}
+              placeholderStyle={styles.placeholder}
             />
             <View style={styles.horizontal}>
               <CheckBox
@@ -64,7 +68,7 @@ const HomeScreen = props => {
         text={'SEND OTP'}
         buttonPress={() => {
           console.log('clicked ');
-          props.navigation.navigate('Otp');
+          props.navigation.navigate('Otp', {number: input});
         }}
       />
     </>

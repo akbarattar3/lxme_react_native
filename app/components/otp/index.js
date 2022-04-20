@@ -22,6 +22,9 @@ const OtpScreen = props => {
   const fourthInput = useRef();
   const [otp, setOtp] = useState({1: '', 2: '', 3: '', 4: ''});
   const [isLoading, setIsLoading] = useState(false);
+  const {navigation} = props;
+  const number = navigation.getParam('number', '9620407863');
+
   return (
     <>
       <KeyboardAvoidingView
@@ -34,7 +37,7 @@ const OtpScreen = props => {
           <Text style={styles.TextView}>Enter OTP</Text>
           <Text style={styles.TextViewLight}>OTP has been sent to you</Text>
           <View style={styles.numberHorizontal}>
-            <Text style={styles.number}>9620407863</Text>
+            <Text style={styles.number}>{number}</Text>
             <Text style={styles.endChange}>Change</Text>
           </View>
           <View style={styles.otpContainer}>
