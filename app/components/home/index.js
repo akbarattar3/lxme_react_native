@@ -21,6 +21,7 @@ import {isValid} from '../../globals/utils/Validator';
 import {callLogin} from './action';
 import {connect} from 'react-redux';
 import {store} from '../../store/configureStore';
+import Colors from '../../themes/Colors';
 
 const HomeScreen = props => {
   const [agree, setAgree] = useState(false);
@@ -59,7 +60,7 @@ const HomeScreen = props => {
                 style={styles.checkbox}
                 value={agree}
                 onValueChange={() => setAgree(!agree)}
-                color={agree ? '#ED1381' : undefined}
+                tintColors={{true: Colors.DEFAULT_APP, false: '#F2F1F6'}}
               />
               <View style={styles.spanText}>
                 {SpannableBuilder.getInstance()
@@ -80,6 +81,8 @@ const HomeScreen = props => {
           // console.log('clicked ');
           if (input.length != 10) {
             Alert.alert('Please enter the correct mobile number to proceed!');
+          } else if (!agree) {
+            Alert.alert('Please accept the terms and conditions to proceed!');
           } else {
             props.navigation.navigate('Otp', {number: input});
           }
