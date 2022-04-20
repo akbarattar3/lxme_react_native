@@ -5,6 +5,7 @@ import {
   TextInput,
   KeyboardAvoidingView,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {
   Item,
@@ -16,10 +17,10 @@ import styles from './style';
 import SubmitButton from '../../globals/components/submitButton';
 
 const OtpScreen = props => {
-  const firstInput = useRef();
-  const secondInput = useRef();
-  const thirdInput = useRef();
-  const fourthInput = useRef();
+  const firstInput = useRef('');
+  const secondInput = useRef('');
+  const thirdInput = useRef('');
+  const fourthInput = useRef('');
   const [otp, setOtp] = useState({1: '', 2: '', 3: '', 4: ''});
   const [isLoading, setIsLoading] = useState(false);
   const {navigation} = props;
@@ -50,6 +51,7 @@ const OtpScreen = props => {
                 onChangeText={text => {
                   setOtp({...otp, 1: text});
                   text && secondInput.current.focus();
+                  firstInput.current.text = text;
                 }}
               />
             </View>
@@ -64,6 +66,7 @@ const OtpScreen = props => {
                   text
                     ? thirdInput.current.focus()
                     : firstInput.current.focus();
+                  secondInput.current.text = text;
                 }}
               />
             </View>
@@ -78,6 +81,7 @@ const OtpScreen = props => {
                   text
                     ? fourthInput.current.focus()
                     : secondInput.current.focus();
+                  thirdInput.current.text = text;
                 }}
               />
             </View>
@@ -90,6 +94,7 @@ const OtpScreen = props => {
                 onChangeText={text => {
                   setOtp({...otp, 4: text});
                   !text && thirdInput.current.focus();
+                  fourthInput.current.text = text;
                 }}
               />
             </View>
@@ -104,7 +109,21 @@ const OtpScreen = props => {
         text={'LOGIN'}
         buttonPress={() => {
           console.log('otp clicked ');
-          props.navigation.navigate('Otp');
+          if (
+            firstInput.current.length == undefined ||
+            secondInput.current.length == undefined ||
+            thirdInput.current.length == undefined ||
+            fourthInput.current.length == undefined
+          ) {
+            Alert.alert('Please enter the OTP to proceed!');
+          } else if (
+            firstInput.current.text.length == 0 ||
+            secondInput.current.text.length == 0 ||
+            thirdInput.current.text.length == 0 ||
+            fourthInput.current.text.length == 0
+          ) {
+            Alert.alert('Please enter the correct OTP to proceed!');
+          }
         }}
       />
     </>
