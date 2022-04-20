@@ -7,10 +7,10 @@
  */
 
 import React from 'react';
-import {Text, View} from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
-import {NavigationContainer} from '@react-navigation/native';
 import {createAppContainer} from 'react-navigation';
+import {Provider} from 'react-redux';
+import {store} from './app/store/configureStore';
 
 import HomeScreen from './app/components/home';
 import OtpScreen from './app/components/otp';
@@ -35,8 +35,10 @@ const Navigator = createAppContainer(OnBoarding);
 
 export default function App() {
   return (
-    <Navigator>
-      <HomeScreen />
-    </Navigator>
+    <Provider store={store}>
+      <Navigator>
+        <HomeScreen />
+      </Navigator>
+    </Provider>
   );
 }
