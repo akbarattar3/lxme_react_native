@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {setHeight} from '../../utils/display';
-import Colors from '../../../themes/colors';
+import Colors from '../../../themes/Colors';
 
 const styles = StyleSheet.create({
   signinButtonText: {

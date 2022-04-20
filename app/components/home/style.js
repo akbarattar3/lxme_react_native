@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import {setHeight} from '../../globals/utils/display';
-import Colors from '../../themes/colors';
+import Colors from '../../themes/Colors';
 
 const styles = StyleSheet.create({
   input: {
@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
   },
   containerFullWidth: {
     backgroundColor: '#ffffff',
-    height: Dimensions.get('window').height,
     flexDirection: 'column',
     flex: 1,
   },

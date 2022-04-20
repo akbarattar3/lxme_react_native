@@ -5,6 +5,7 @@ import {
   TextInput,
   ScrollView,
   KeyboardAvoidingView,
+  Alert,
 } from 'react-native';
 import {
   Item,
@@ -16,7 +17,7 @@ import CheckBox from '@react-native-community/checkbox';
 import styles from './style';
 import SubmitButton from '../../globals/components/submitButton';
 import SpannableBuilder from 'react-native-spannable-string';
-import {isValid} from '../../globals/utils/validator';
+import {isValid} from '../../globals/utils/Validator';
 import {callLogin} from './action';
 import {connect} from 'react-redux';
 import {store} from '../../store/configureStore';
@@ -25,6 +26,7 @@ const HomeScreen = props => {
   const [agree, setAgree] = useState(false);
   const [isLoading] = useState(false);
   const [input, setInput] = useState('');
+  const [errorStatus = true, setErrorStatus] = useState('');
 
   return (
     <>
@@ -46,7 +48,10 @@ const HomeScreen = props => {
               keyboardType="numeric"
               backgroundColor="#F4F7FE"
               value={input}
-              onChangeText={value => setInput(value)}
+              onChangeText={value => {
+                setInput(value);
+                setErrorStatus(true);
+              }}
               placeholderStyle={styles.placeholder}
             />
             <View style={styles.horizontal}>
@@ -73,7 +78,11 @@ const HomeScreen = props => {
         text={'SEND OTP'}
         buttonPress={() => {
           // console.log('clicked ');
-          props.navigation.navigate('Otp', {number: input});
+          if (input.length != 10) {
+            Alert.alert('Please enter the correct mobile number to proceed!');
+          } else {
+            props.navigation.navigate('Otp', {number: input});
+          }
           //   props.callLogin({
           //     onSuccess: successMessage => {
           //       console.log('on success response ', successMessage[0].lan_name);
