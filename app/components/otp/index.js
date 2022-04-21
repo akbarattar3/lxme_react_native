@@ -18,6 +18,7 @@ import SubmitButton from '../../globals/components/submitButton';
 import {callLogin} from '../otp/action';
 import {connect} from 'react-redux';
 import {store} from '../../store/configureStore';
+import LottieView from 'lottie-react-native';
 
 const OtpScreen = props => {
   const firstInput = useRef('');
@@ -127,9 +128,11 @@ const OtpScreen = props => {
           ) {
             Alert.alert('Please enter the correct OTP to proceed!');
           } else {
+            setIsLoading(true);
             props.callLogin({
               mobileNumber: number,
               onSuccess: successMessage => {
+                setIsLoading(false);
                 console.log('on success response ', successMessage[0].lan_name);
                 console.log(
                   'on success response from reducer ',
@@ -145,6 +148,11 @@ const OtpScreen = props => {
           }
         }}
       />
+      {isLoading ? (
+        <LottieView source={require('../../assets/loading.json')} autoPlay />
+      ) : (
+        <Text style={styles.signinButtonText}>Sign In</Text>
+      )}
     </>
   );
 };
