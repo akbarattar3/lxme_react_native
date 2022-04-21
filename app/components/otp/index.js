@@ -108,12 +108,12 @@ const OtpScreen = props => {
         isLoading={isLoading}
         text={'LOGIN'}
         buttonPress={() => {
-          console.log('otp clicked ');
+          console.log('otp clicked ', firstInput.current);
           if (
-            firstInput.current.length == undefined ||
-            secondInput.current.length == undefined ||
-            thirdInput.current.length == undefined ||
-            fourthInput.current.length == undefined
+            firstInput.current.text == undefined ||
+            secondInput.current.text == undefined ||
+            thirdInput.current.text == undefined ||
+            fourthInput.current.text == undefined
           ) {
             Alert.alert('Please enter the OTP to proceed!');
           } else if (
