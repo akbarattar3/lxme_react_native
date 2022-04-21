@@ -6,6 +6,7 @@ export function getBaseURL() {
 }
 const API_DOMAIN_QA = getBaseURL();
 export const GET_CURRENCY = `${API_DOMAIN_QA}v1/utility/languages`;
+export const GET_CURRENCY_FAULTY = `${API_DOMAIN_QA}v1/utility/languages33`;
 // 401 error code for refereshToken expire   /admin/getadminconfiguration/
 // export const GET_USER = (email) =>
 //   `${API_DOMAIN_QA}/user/getuser/userid/${email}?cb=${Date.now()}`;

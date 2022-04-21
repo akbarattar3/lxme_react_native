@@ -15,6 +15,9 @@ import {
 import Logo from '../../assets/images/Logo';
 import styles from './style';
 import SubmitButton from '../../globals/components/submitButton';
+import {callLogin} from '../otp/action';
+import {connect} from 'react-redux';
+import {store} from '../../store/configureStore';
 
 const OtpScreen = props => {
   const firstInput = useRef('');
@@ -123,6 +126,22 @@ const OtpScreen = props => {
             fourthInput.current.text.length == 0
           ) {
             Alert.alert('Please enter the correct OTP to proceed!');
+          } else {
+            props.callLogin({
+              mobileNumber: number,
+              onSuccess: successMessage => {
+                console.log('on success response ', successMessage[0].lan_name);
+                console.log(
+                  'on success response from reducer ',
+                  props.LoginReducer.languageData,
+                );
+                console.log(
+                  'from direct store ',
+                  store.getState().LoginReducer.languageData,
+                );
+                alert('Logged in successful');
+              },
+            });
           }
         }}
       />
@@ -150,4 +169,14 @@ OtpScreen.navigationOptions = navData => {
   };
 };
 
-export default OtpScreen;
+const mapStateToProps = state => {
+  return {
+    LoginReducer: state.LoginReducer,
+  }; // write reducer code here
+};
+
+const mapDispatchToProps = {
+  callLogin: callLogin,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OtpScreen);

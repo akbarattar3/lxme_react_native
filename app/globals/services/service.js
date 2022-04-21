@@ -145,6 +145,7 @@ const doGet = (url, resolve, reject, config = {}) => {
         DeviceEventEmitter.emit('PagenotFound', {
           statusCode: error.response.status,
         });
+        alert('Mobile Number is not registered');
       } else if (error.response.status && error.response.status === 500) {
         //showAlert(); internal server Error
       } else if (error.response.status && error.response.status === 401) {
